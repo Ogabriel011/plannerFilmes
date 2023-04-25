@@ -1,0 +1,36 @@
+{
+  "filmes":[
+    {
+      "id":1,
+      "nomeFilme":"Vingadores",
+      "banner": "../../assets/img/71niXI3lxlL 1.png",
+      "fotoUsuario": "../../assets/img/images 1.png",
+      "nomeUsuario": "Taylor Swift",
+      "data": "2 fev 2023"
+    },
+    {
+      "id":2,
+      "nomeFilme":"Jurassic Park",
+      "banner": "../../assets/img/sub-buzz-817-1649105149-10 1.png",
+      "fotoUsuario": "../../assets/img/images 2.png",
+      "nomeUsuario": "BillieEilish",
+      "data": "3 mar 2023"
+    },
+    {
+      "id":3,
+      "nomeFilme":"Us",
+      "banner": "../../assets/img/716rIayrVWL 1.png",
+      "fotoUsuario": "../../assets/img/images 4.png",
+      "nomeUsuario": "BillieEilish",
+      "data": "31 fev 2023"
+    },
+    {
+      "id":4,
+      "nomeFilme":"A Bela e a Fera",
+      "banner": "../../assets/img/s-l1600 (1) 1.png",
+      "fotoUsuario": "../../assets/img/images 3.png",
+      "nomeUsuario": "HarryStyles",
+      "data": "20 mar 2023"
+    }
+  ]
+}

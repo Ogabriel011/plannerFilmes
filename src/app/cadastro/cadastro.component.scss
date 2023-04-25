@@ -1,0 +1,110 @@
+main{
+  width: 96%;
+  height: 100vh;
+  padding-left: 2%;
+  padding-right: 2%;
+  background: linear-gradient(
+    180deg,
+    rgba(70, 69, 85, 0.9) 0%,
+    rgba(36, 36, 47, 0.9) 100%
+  );
+  background-image: url('../../assets/img/MicrosoftTeams-image1.png');
+}
+
+.logo {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 60px;
+  background: linear-gradient(269.92deg, #ffffff -2.93%, #c9c9cc 99.88%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: white;
+}
+
+a{
+  text-decoration: none;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+}
+
+.informacoes{
+  width: 35%;
+  height: 35%;
+  margin-top: 30px;
+  background-color: rgba(41, 40, 49, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 80px;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+h1{
+  font-family: 'roboto';
+  font-size: 32px;
+  color: white;
+  padding: 10px;
+  padding-right: 170px;
+  margin-bottom: 20px;
+}
+
+form{
+  width: 70%;
+  padding:10px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'roboto';
+  color: white;
+}
+
+input{
+  height: 30px;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+.checkbox{
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+label{
+  margin-bottom: 5px;
+}
+
+#termosPrivacidade{
+  margin-bottom: 5px;
+}
+
+.cadastro{
+  width: 150px;
+  height: 45px;
+  margin-left: 25%;
+  margin-top: 30px;
+  font-family: 'roboto';
+  color: white;
+  background-color: rgba(185, 57, 167, 1);
+  border: 0;
+  border-radius: 25px;
+  transition: 300ms;
+}
+
+.cadastro:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  cursor: pointer;
+}
+
+
+
+
+
+

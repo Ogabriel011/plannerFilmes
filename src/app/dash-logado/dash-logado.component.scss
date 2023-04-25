@@ -1,0 +1,188 @@
+header{
+  width: 100%;
+  height: 100px;
+  background-color: #393847;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo{
+  font-size: 40px;
+  font-family: 'roboto';
+  color: white;
+  padding-left: 35px;
+}
+
+.links{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: 'roboto';
+}
+
+.icone_perfil{
+  padding-right: 40px;
+}
+
+.navegar{
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.pesquisa{
+  display: flex;
+  align-items: center;
+}
+
+.campo_pesquisa{
+  height: 36px;
+  padding-left: 15px;
+  border-radius: 20px;
+  border: none;
+}
+
+.botao_pesquisa{
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(268.52deg, #E13664 -6.16%, #B939A7 113.41%);
+  border: none;
+  border-radius: 50%;
+  position: relative;
+  right: 30px;
+}
+
+.botao_pesquisa:hover{
+  cursor: pointer;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+main{
+  width: 90%;
+  height: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: #464555;
+}
+
+.mensagem_entrada{
+  padding-top:50px ;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'roboto';
+  font-size: 48px;
+  color: white;
+}
+
+.nome_usuario{
+  font-family: 'roboto';
+  font-size: 48px;
+  text-decoration:underline;
+}
+
+section p{
+  font-size: 16px;
+  font-family: 'roboto';
+  color: white;
+}
+
+.recomendados{
+  margin: 50px 0px;
+}
+
+.linha_g{
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  margin: 15px 0;
+}
+
+.filmes{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.card_filme{
+  width: 250px;
+  height: 450px;
+  background-color: rgba(15, 14, 17, 1);
+  border-radius: 10px;
+}
+
+.usuario_filme{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.usuario_filme p{
+  font-size: 12px;
+}
+
+.nome_user{
+  padding-right: 70px;
+}
+
+.linha_p{
+  width: 95%;
+  height: 2px;
+  background-color: white;
+  margin-left: 5px;
+}
+
+.avaliacoes{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 5px;
+}
+
+// .botao{
+//   width: 65px;
+//   height: 65px;
+//   background: linear-gradient(268.52deg, #E13664 -6.16%, #B939A7 113.41%);
+//   border-radius: 50%;
+//   position: relative;
+// }
+
+.card_lancamento{
+  width: 250px;
+  height: 410px;
+  background-color: rgba(15, 14, 17, 1);
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.titulo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 5px;
+}
+
+.titulo p, a{
+  font-size: 16px;
+  font-family: 'roboto';
+  color: white;
+}
+
+footer{
+  margin-top: 30px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p{
+  font-size: 24px;
+  font-family: 'roboto';
+  color: rgba(255, 255, 255, 0.47);
+}

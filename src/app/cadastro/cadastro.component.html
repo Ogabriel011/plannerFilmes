@@ -1,0 +1,41 @@
+<main>
+  <header>
+    <a routerLink="/home"><b class="logo">Moviez.</b></a>
+  </header>
+  <body>
+    <div class="informacoes">
+      <h1>Criar conta</h1>
+      <form [formGroup]="form" (ngSubmit)="OnSubmit()">
+        <label for="email" name="email">E-mail:</label>
+        <input type="email" id="email" placeholder="E-mail" formControlName="email" required /><br />
+
+        <label for="nomeUsuario" name="nomeUsuario">Nome do Usuário:</label>
+        <input
+          type="text"
+          id="nomeUsuario"
+          placeholder="Nome do Usuário"
+          formControlName="usuario"
+          required
+        /><br />
+
+        <label for="senha" name="senha">Senha:</label>
+        <input
+          type="password"
+          id="senha"
+          placeholder="Digite sua senha"
+          formControlName="senha"
+          required
+        /><br />
+
+        <div class="checkbox">
+          <input type="checkbox" id="termosPrivacidade" required/>
+          <label for="termosPrivacidade" class="termos" name="termosPrivacidade"
+            >Eu aceito os termos de privacidade</label
+          ><br />
+        </div>
+
+        <button type="submit" class="cadastro" [disabled]="!form.valid" >Cadastre-se</button>
+      </form>
+    </div>
+  </body>
+</main>
