@@ -10,20 +10,39 @@ header{
 .logo{
   font-size: 40px;
   font-family: 'roboto';
-  color: white;
+  background: linear-gradient(269.92deg, #ffffff -2.93%, #c9c9cc 99.88%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   padding-left: 35px;
+
 }
 
 .links{
-  width: 50%;
+  width: 60%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-around;
   font-family: 'roboto';
 }
 
-.icone_perfil{
+a:hover{
+  color: gray;
+  text-decoration: underline;
+}
+
+.perfil a{
   padding-right: 40px;
+}
+
+.icone_perfil:hover{
+  color: gray;
+}
+
+.nav_bar{
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .navegar{
@@ -32,32 +51,7 @@ header{
   font-size: 16px;
 }
 
-.pesquisa{
-  display: flex;
-  align-items: center;
-}
 
-.campo_pesquisa{
-  height: 36px;
-  padding-left: 15px;
-  border-radius: 20px;
-  border: none;
-}
-
-.botao_pesquisa{
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(268.52deg, #E13664 -6.16%, #B939A7 113.41%);
-  border: none;
-  border-radius: 50%;
-  position: relative;
-  right: 30px;
-}
-
-.botao_pesquisa:hover{
-  cursor: pointer;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
 
 main{
   width: 90%;
@@ -104,14 +98,16 @@ section p{
 .filmes{
   display: flex;
   justify-content: space-between;
-
+  flex-wrap: wrap;
 }
 
 .card_filme{
   width: 250px;
   height: 450px;
   background-color: rgba(15, 14, 17, 1);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   border-radius: 10px;
+  margin-bottom: 30px;
 }
 
 .usuario_filme{
@@ -155,6 +151,7 @@ section p{
   width: 250px;
   height: 410px;
   background-color: rgba(15, 14, 17, 1);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   border-radius: 10px;
   margin-bottom: 50px;
 }
@@ -185,4 +182,50 @@ footer p{
   font-size: 24px;
   font-family: 'roboto';
   color: rgba(255, 255, 255, 0.47);
+}
+
+@media(max-width:700px){
+  header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 250px;
+    align-items: center;
+    align-content: center;
+  }
+
+  .nav_bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 150px;
+  }
+
+  .links{
+    width: 20%;
+    height: 100px;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .icone_perfil{
+    padding: 0;
+  }
+
+  .pesquisa{
+    margin-left: 30px;
+  }
+
+  .logo{
+    padding: 0;
+  }
+
+}
+
+@media(max-width:570px){
+  .filmes{
+    justify-content: center;
+  }
+
+
 }

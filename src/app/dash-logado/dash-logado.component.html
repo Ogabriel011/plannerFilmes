@@ -1,34 +1,8 @@
-<header>
-  <div class="logotipo">
-    <a routerLink="/home"><b class="logo">Moviez.</b></a>
-  </div>
-  <div class="links">
-    <a class="navegar" href="#">Inicio</a>
-    <a class="navegar" href="#">Listas</a>
-    <a class="navegar" href="#">Filmes</a>
-    <div class="pesquisa">
-      <input
-        type="text"
-        class="campo_pesquisa"
-        name="pesquisar"
-        placeholder="Busca..."
-      />
-      <button type="submit" class="botao_pesquisa">
-        <img
-          src="../../assets/img/icon_lupa.png"
-          alt="Icone de uma lupa branca"
-        />
-      </button>
-    </div>
-    <a href="#" class="icone_perfil"
-      ><img src="../../assets/img/icon_perfil.png" alt="Icone de perfil"
-    /></a>
-  </div>
-</header>
+<app-header></app-header>
 <main>
   <div class="mensagem_entrada">
     <p>
-      Olá, <a href="/perfil" class="nome_usuario">Gabriel.</a> Confira o que
+      Olá, <a routerLink="/editar_perfil" class="nome_usuario">Gabriel.</a> Confira o que
       está rolando...
     </p>
   </div>
@@ -39,26 +13,25 @@
     <div class="linha_g"></div>
 
     <div class="filmes">
+      <div
+        class="card_filme"
+        *ngFor="let filme of filmes_recomendados; index as i"
+      >
+        <img src="{{ filme.banner }}" alt="banner filme vingadores ultimato" />
 
-      <div class="card_filme" *ngFor="let item of filmes; index as i">
-        <img
-          src={{item.banner}}
-          alt="banner filme vingadores ultimato"
-        />
-        
         <div class="informacoes_filme">
-
           <div class="usuario_filme">
-            <img src={{item.fotoUsuario}} />
-            <p class="nome_user">{{item.nomeUsuario}}</p>
-            <p>{{item.data}}</p>
+            <img src="{{ filme.fotoUsuario }}" />
+            <p class="nome_user">{{ filme.nomeUsuario }}</p>
+            <p>{{ filme.data }}</p>
           </div>
 
           <div class="linha_p"></div>
 
           <div class="avaliacoes">
-
-            <p class="assistido">Assistiu:<a href="#">{{item.nomeFilme}}</a></p>
+            <p class="assistido">
+              Assistiu:<a href="#">{{ filme.nomeFilme }}</a>
+            </p>
 
             <div class="estrelas">
               <img
@@ -74,11 +47,9 @@
                 alt="icone estrela"
               />
             </div>
-
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -87,14 +58,16 @@
     <div class="linha_g"></div>
 
     <div class="filmes">
-    <div class="card_lancamento">
-      <img
-        src="../../assets/img/71niXI3lxlL 1.png"
-        alt="banner filme vingadores ultimato"
-      />
+      <div
+        class="card_lancamento"
+        *ngFor="let filme of filmes_lancamentos; index as i"
+      >
+        <img src="{{ filme.banner }}" />
         <div class="titulo">
-          <p>Titulo: <a href="#">Pânico 6</a></p>
-          <p>9 mar 2023</p>
+          <p>
+            Titulo: <a href="#">{{ filme.titulo }}</a>
+          </p>
+          <p>{{ filme.data }}</p>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 {
-  "filmes":[
+  "filmes_recomendados":[
     {
       "id":1,
       "nomeFilme":"Vingadores",
@@ -31,6 +31,139 @@
       "fotoUsuario": "../../assets/img/images 3.png",
       "nomeUsuario": "HarryStyles",
       "data": "20 mar 2023"
+    }
+  ],
+
+  "filmes_lancamentos":[
+    {
+      "id": 1,
+      "titulo": "Pânico 6",
+      "banner":"../../assets/img/3168009 1.png",
+      "data": "9 mar 2023"
+    },
+    {
+      "id": 2,
+      "titulo": "Creed III",
+      "banner":"../../assets/img/Creed3 1.png",
+      "data": "2 mar 2023"
+    },
+    {
+      "id": 3,
+      "titulo": "Homem-Formiga e a Vespa",
+      "banner":"../../assets/img/homemformigaeavespa 1.png",
+      "data": "15 fev 2023"
+    },
+    {
+      "id": 4,
+      "titulo": "M3GAN",
+      "banner":"../../assets/img/4286150 1.png",
+      "data": "19 jan 2023"
+    }
+  ],
+  "meus_filmes":[
+    {
+      "id":1,
+      "titulo":"Dungeons & Dragons",
+      "banner": "../../assets/img/424003-dungeons-dragons-honor-among-thieves-0-1000-0-1500-crop 1.png",
+      "ano": "2023",
+      "genero": "ação",
+      "tipo": "filme"
+    },
+    {
+      "id":2,
+      "titulo":"John Wick",
+      "banner":"../../assets/img/172076-john-wick-0-500-0-750-crop 1.png",
+      "ano": "2020",
+      "genero": "ação",
+      "tipo": "filme"
+    },
+    {
+      "id":3,
+      "titulo":"Everything Everywhere All at Once",
+      "banner":"../../assets/img/474474-everything-everywhere-all-at-once-0-500-0-750-crop 1.png",
+      "ano": "2022",
+      "genero": "aventura",
+      "tipo": "filme"
+    },
+    {
+      "id":4,
+      "titulo":"Vingadores",
+      "banner":"../../assets/img/71niXI3lxlL 1.png",
+      "ano": "2023",
+      "genero": "ação",
+      "tipo": "filme"
+    },
+    {
+      "id":5,
+      "titulo":"it capitulo 2",
+      "banner":"../../assets/img/it2.jpg",
+      "ano": "2023",
+      "genero": "terror",
+      "tipo": "filme"
+    },
+    {
+      "id":6,
+      "titulo":"The Walking Dead",
+      "banner":"../../assets/img/the walking dead.jpg",
+      "ano": "2021",
+      "genero": "ação",
+      "tipo": "serie"
+    },
+    {
+      "id":7,
+      "titulo":"Chucky: A Serie",
+      "banner":"../../assets/img/chucky serie.jpg",
+      "ano": "2022",
+      "genero": "terror",
+      "tipo": "serie"
+    },
+    {
+      "id":8,
+      "titulo":"Once Upon a Time",
+      "banner":"../../assets/img/Once_Upon_a_Time_Temporada_3_Poster.jpg",
+      "ano": "2022",
+      "genero": "aventura",
+      "tipo": "serie"
+    },
+    {
+      "id":9,
+      "titulo":"Drake e Josh",
+      "banner":"../../assets/img/drake e josh.jpg",
+      "ano": "2020",
+      "genero": "comedia",
+      "tipo": "serie"
+    },
+    {
+      "id":10,
+      "titulo":"The Walking Dead: Confiar 11x15",
+      "banner":"../../assets/img/the walking dead.jpg",
+      "ano": "2022",
+      "genero": "acao",
+      "tipo": "episodio"
+    },
+    {
+      "id":11,
+      "titulo":"Once Upon a Time: Deixando Storybrooke 7x22",
+      "banner":"../../assets/img/Once_Upon_a_Time_Temporada_3_Poster.jpg",
+      "ano": "2022",
+      "genero": "aventura",
+      "tipo": "episodio"
+    },
+    {
+      "id":12,
+      "titulo":"Drake e Josh: Os irmãos cara de pau 2x8",
+      "banner":"../../assets/img/drake e josh.jpg",
+      "ano": "2022",
+      "genero": "comedia",
+      "tipo": "episodio"
+    }
+  ],
+
+  "usuarios":[
+    {
+      "nome": "gabriel",
+      "email": "biel.patricio06@gmail.com",
+      "senha": "abC1@3"
     }
   ]
 }

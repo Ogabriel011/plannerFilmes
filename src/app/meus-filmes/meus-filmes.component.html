@@ -1,0 +1,35 @@
+<app-header></app-header>
+<main>
+  <body>
+    <app-adicione-filmes (searchTextChanged)="onSearchTextEndered($event)" (filtroAno)="filtrarAno($event)" (filtroGenero)="filtrarGenero($event)" (filtroTipo)="filtrarTipo($event)"></app-adicione-filmes>
+
+    <p class="meusFilmes">Meus filmes</p>
+    <div class="linha"></div>
+    <!--  -->
+    <div class="filmes" >
+      <div *ngFor="let filme of meusFilmes; index as i">
+        <div class="cards" >
+      <div
+        class="card"
+        *ngIf="searchText === '' || filme.titulo.toLowerCase().includes(searchText) && filme.ano.toLowerCase() === anoFiltro && validaGeneroSelecionado(generoFiltro, filme.genero) && filme.tipo.toLowerCase() === tipoFiltro "
+
+      >
+        <img src="{{ filme.banner }}" />
+        <button class="detalhes">Detalhes</button>
+        <div class="titulo">
+          <p>
+            Titulo: <a href="#">{{ filme.titulo }}</a>
+          </p>
+          <p> Genêro: {{ filme.genero }}</p>
+          <p>{{ filme.ano }}</p>
+        </div>
+
+
+
+      </div>
+    </div>
+    </div>
+    </div>
+  </body>
+<app-footer></app-footer>
+</main>

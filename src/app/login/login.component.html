@@ -3,9 +3,9 @@
     <a routerLink="/home"><b class="logo">Moviez.</b></a>
   </header>
   <body>
-    <div class="informacoes">
+    <div class="card">
       <h1>Entrar</h1>
-      <form [formGroup]="form" (ngSubmit)="OnSubmit()">
+      <form [formGroup]="formulario">
         <label for="usuario" name="usuario">E-mail ou Nome de Usuário:</label>
         <input
           type="text"
@@ -13,7 +13,9 @@
           placeholder="E-mail ou Nome de Usuário"
           formControlName="usuario"
           required
-        /><br />
+        />
+        <span *ngIf="formulario.get('usuario')?.errors?.['required'] && formulario.get('usuario')?.touched || formulario.get('usuario')?.errors?.['minusculo']">*E-mail ou Usuário incorreto</span>
+        <br />
 
         <label for="senha" name="senha">Senha:</label>
         <input
@@ -21,17 +23,21 @@
           id="senha"
           placeholder="Digite sua senha"
           formControlName="senha"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@*#]).{6,}"
           required
-        /><br />
+        />
+        <span *ngIf="formulario.get('senha')?.errors?.['pattern'] || formulario.get('senha')?.errors?.['required'] && formulario.get('senha')?.touched">*Senha incorreta</span>
+        <br />
 
         <div class="checkbox">
-          <input type="checkbox" id="termosPrivacidade" required />
+          <input type="checkbox" id="termosPrivacidade" formControlName="termos" required />
           <label for="termosPrivacidade" class="termos" name="termosPrivacidade"
             >Eu aceito os termos de privacidade</label
           ><br />
         </div>
+        <span *ngIf="formulario.get('termos')?.errors?.['required'] && formulario.get('termos')?.touched">*Os termos são obrigatórios</span>
 
-        <button type="submit" class="login" [disabled]="!form.valid">Entrar</button>
+        <button type="submit" class="login" (click)="login()" [disabled]="formulario.invalid">Entrar</button>
       </form>
 
     </div>

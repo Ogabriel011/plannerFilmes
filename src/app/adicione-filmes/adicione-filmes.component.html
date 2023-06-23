@@ -1,0 +1,48 @@
+<div class="informacoes">
+  <p class="adicioneFilmes">ADICIONE SEUS FILMES</p>
+
+    <div class="ajuste">
+    <div class="pesquisa">
+      <input
+      type="search"
+      #busca
+      class="filtro"
+      placeholder="O que você procura?"
+      [(ngModel)]="enteredSearchValue"
+      (input)="onSearchTextChanged()"
+
+      >
+      <button class="btn_pesquisar">
+        <img  src="../../assets/img/icon_lupa.png" alt="Icone lupa" />
+      </button>
+    </div>
+  </div>
+
+
+
+  <div class="filtros">
+    <p>Filtros:</p>
+    <select name="generos" id="generos" [(ngModel)]="generoFiltrado" (change)="generoFiltro()">
+      <option value="genero" disabled selected>Genêro</option>
+      <option value="terror">Terror</option>
+      <option value="acao">Ação</option>
+      <option value="aventura">Aventura</option>
+      <option value="comedia">Comédia</option>
+    </select>
+
+    <select name="tipo" id="tipo" [(ngModel)]="tipoFiltrado" (change)="tipoFiltro()">
+      <option value="tipo" disabled selected>Tipo</option>
+      <option value="filme">Filme</option>
+      <option value="serie">Série</option>
+      <option value="episodio">Episódio</option>
+    </select>
+
+    <select name="ano" id="ano" [(ngModel)]="anoFiltrado" (change)="anoFiltro()">
+      <option value="ano" disabled selected>Ano</option>
+      <option value="2020">2020</option>
+      <option value="2021">2021</option>
+      <option value="2022">2022</option>
+      <option value="2023">2023</option>
+    </select>
+  </div>
+</div>

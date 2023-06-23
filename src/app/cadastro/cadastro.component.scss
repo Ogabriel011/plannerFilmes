@@ -1,14 +1,13 @@
 main{
-  width: 96%;
+  width: 100%;
   height: 100vh;
-  padding-left: 2%;
-  padding-right: 2%;
   background: linear-gradient(
     180deg,
     rgba(70, 69, 85, 0.9) 0%,
     rgba(36, 36, 47, 0.9) 100%
   );
   background-image: url('../../assets/img/MicrosoftTeams-image1.png');
+  background-size: cover;
 }
 
 .logo {
@@ -30,34 +29,36 @@ a{
 }
 
 body{
+  width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.informacoes{
-  width: 35%;
-  height: 35%;
-  margin-top: 30px;
+.card{
+  width: 22rem;
+  height: 33rem;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   background-color: rgba(41, 40, 49, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  border-radius: 80px;
+  justify-content: space-evenly;
+  border-radius: 10px;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 h1{
+  width: 80%;
   font-family: 'roboto';
-  font-size: 32px;
+  font-size: 180%;
   color: white;
-  padding: 10px;
-  padding-right: 170px;
-  margin-bottom: 20px;
+  margin: 2%;
 }
 
 form{
-  width: 70%;
+  width: 80%;
   padding:10px;
   display: flex;
   flex-direction: column;
@@ -67,32 +68,43 @@ form{
 
 input{
   height: 30px;
-  border-radius: 10px;
+  border-radius: 15px;
   padding-left: 10px;
+}
+
+input:focus{
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .checkbox{
   display: flex;
   align-items: center;
-  margin-top: 5px;
+  margin: 0 5px;
 }
 
 label{
-  margin-bottom: 5px;
+  margin: 10px;
 }
 
 #termosPrivacidade{
-  margin-bottom: 5px;
+  width: 20px;
+}
+
+.termos{
+  font-size: 14px;
 }
 
 .cadastro{
-  width: 150px;
+  width: 50%;
   height: 45px;
-  margin-left: 25%;
-  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 25%;
   font-family: 'roboto';
   color: white;
-  background-color: rgba(185, 57, 167, 1);
+  background: linear-gradient(90deg, #B939A7 0%, #E13664 100%);
   border: 0;
   border-radius: 25px;
   transition: 300ms;
@@ -101,6 +113,19 @@ label{
 .cadastro:hover{
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   cursor: pointer;
+}
+
+.cadastro:disabled{
+  cursor: not-allowed;
+  box-shadow: none;
+  background: gray;
+}
+
+span{
+  color: red;
+  font-size: 12px;
+  height: 10px;
+  margin: 5px;
 }
 
 

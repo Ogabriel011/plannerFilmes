@@ -1,0 +1,27 @@
+<app-header></app-header>
+<main>
+  <body>
+    <app-adicione-filmes></app-adicione-filmes>
+
+    <p class="meusFilmes">Resultados da sua busca</p>
+    <div class="linha"></div>
+
+    <div class="filmes">
+      <div
+        class="card"
+        *ngFor="let filme of meusFilmes; index as i"
+      >
+        <img src="{{ filme.banner }}" />
+        <button class="detalhes">Detalhes</button>
+        <div class="titulo">
+          <p>
+            Titulo: <a href="#">{{ filme.titulo }}</a>
+          </p>
+          <p>{{ filme.ano }}</p>
+        </div>
+
+      </div>
+     </div>
+  </body>
+<app-footer></app-footer>
+</main>

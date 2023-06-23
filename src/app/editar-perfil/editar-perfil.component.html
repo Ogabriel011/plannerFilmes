@@ -1,0 +1,111 @@
+<app-header></app-header>
+<main>
+  <body>
+    <div class="editarPerfil">
+      <h2>Editar perfil</h2>
+
+      <div class="linha"></div>
+
+      <div class="nome_foto">
+        <img [src]="url" *ngIf="url" id="fotoPerfil" />
+
+        <div class="nome_botao">
+          <p class="nome" *ngFor="let item of usuarios">@{{ item.nome }}</p>
+
+          <div class="editarFoto">
+            <label for="file" class="label_file"
+            ><img
+            src="../../assets/img/icon _edit 2_.png"
+            alt="icone de lapis para edição"
+            /></label>
+            <input
+            id="file"
+            type="file"
+            name="file"
+            (change)="trocarImagem($event)"
+            />
+          </div>
+        </div>
+        <span [innerHTML]="msg" *ngIf="msg" style="color: red"></span>
+      </div>
+    </div>
+    <div class="informacoes">
+      <div class="biografia">
+        <div class="linha_p"></div>
+        <p>Biografia:</p>
+        <textarea name="biografia" id="biografia"></textarea>
+        <!-- <button class="editar_biografia">
+          <img
+            src="../../assets/img/icon _edit 2_.png"
+            alt="icone editar perfil"
+          />
+        </button> -->
+        <div class="linha_p"></div>
+      </div>
+      <div class="usuario">
+        <form [formGroup]="formulario">
+          <label for="email">Email:</label>
+          <div class="botao_infos">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              formControlName="email"
+              required
+            />
+            <br />
+            <!-- <button class="editarBotao ajuste_btn">
+              <img
+                class="iconEdit"
+                src="../../assets/img/icon _edit 2_.png"
+                alt="icone editar perfil"
+              />
+            </button> -->
+            <span
+              *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched"
+              >*O email está incorreto</span
+            >
+          </div>
+
+          <label for="senha">Senha:</label>
+          <div class="botao_infos">
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              placeholder="Senha"
+              formControlName="senha"
+              required
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@*#]).{6,}"
+            />
+            <!-- <button class="editarBotao ajuste_btn">
+              <img
+                class="iconEdit"
+                src="../../assets/img/icon _edit 2_.png"
+                alt="icone editar perfil"
+              />
+            </button> -->
+            <br />
+            <span
+              *ngIf="formulario.get('senha')?.errors?.['required'] && formulario.get('senha')?.touched || formulario.get('senha')?.errors?.['pattern']"
+              >*A senha está incorreta</span
+            >
+          </div>
+        </form>
+        <button
+          type="submit"
+          class="salvar"
+          (click)="Salvar()"
+          [disabled]="formulario.invalid"
+        >
+          Salvar
+        </button>
+      </div>
+    </div>
+  </body>
+  <footer>
+    <div class="linha"></div>
+    <p>© Moviez. Limited.</p>
+  </footer>
+</main>
