@@ -1,0 +1,127 @@
+<app-header></app-header>
+<main>
+  <button class="voltar" (click)="voltarTela()"><img src="../../assets/img/curva-de-seta-apontando-para-a-esquerda.png" alt="Icon seta curvada para a esquerda"></button>
+  <div class="img_fundo">
+    <img
+      src="../../assets/img/thumb-1920-805763 1.png"
+      alt="Imagem do Filme A Bela e a Fera"
+    />
+  </div>
+
+  <section class="detalhes_filme">
+    <div class="lado_esquerdo">
+      <div class="container">
+        <img
+          src="../../assets/img/s-l1600 (1) 1.png"
+          class="banner_filme"
+          alt="Banner filme A Bela e a Fera"
+          >
+          <button class="adicionar_filme btn" (click)="modal.toogle()"><img class="logo_btn" src="../../assets/img/x.png" alt="Icone x"></button>
+      </div>
+
+      <div>
+        <p class="onde_assistir">Onde assistir:</p>
+        <div class="linhaBranca"></div>
+        <div class="links">
+          <img
+            src="../../assets/img/🦆 icon _video_.png"
+            alt="Icon de camera"
+          />
+          <a href="#">Trailer</a>
+        </div>
+
+        <div class="links">
+          <img src="../../assets/img/Mask group.png" alt="Logo da Disney+" />
+          <a href="#">Disney Plus</a>
+          <p>(streaming)</p>
+        </div>
+
+        <div class="links">
+          <img
+            src="../../assets/img/Mask group (1).png"
+            alt="Logo do Youtube"
+          />
+          <a href="#">Youtube</a>
+          <p>(Aluguel e Compra)</p>
+        </div>
+
+        <div class="links">
+          <img
+            src="../../assets/img/Mask group (2).png"
+            alt="Logo da Google Play"
+          />
+          <a href="#">Google Play</a>
+          <p>(Aluguel e Compra)</p>
+        </div>
+        <div class="linhaBranca"></div>
+        <p class="informacoes">Informações:</p>
+        <div class="links">
+          <img src="../../assets/img/Mask group (3).png" alt="Logo IMDB" />
+          <a href="">IMDB</a>
+        </div>
+      </div>
+    </div>
+    <div class="lado_direito">
+      <div class="titulo_filme">
+        <h2>A Bela e a Fera</h2>
+        <p>16 mar 2017</p>
+      </div>
+      <div class="sinopse">
+        <p>
+          Em A Bela e a Fera, moradora de uma pequena aldeia francesa, Bela
+          (Emma Watson) tem o pai capturado pela Fera (Dan Stevens) e decide
+          entregar sua vida ao estranho ser em troca da liberdade dele. No
+          castelo, ela conhece objetos mágicos e descobre que a Fera é, na
+          verdade, um príncipe que precisa de amor para voltar à forma humana.
+        </p>
+      </div>
+
+      <div class="ficha_filme">
+        <h2>Ficha do Filme</h2>
+        <div class="linhaBranca"></div>
+        <div class="informacoes_filme">
+          <p><b>Lançamento:</b> 16 de março de 2017</p>
+          <p><b>Nota Média:</b> 3.1</p>
+          <p><b>Duração:</b> 2h9min</p>
+          <p><b>Língua:</b> Inglês</p>
+          <p>
+            <b>Roteiro:</b> Stephen Chbosky, Evan Spiliotopoulos, Linda
+            Woolverton
+          </p>
+          <p><b>Diretor:</b> Bill Condon</p>
+          <p><b>Atores:</b> Emma Watson, Dan Stevens, Luke Evans</p>
+          <p>
+            <b>Principais Prêmios:</b> MTV Movie Award Melhor Filme, Empire
+            Awards Melhor Cabelo e Maquiagem
+          </p>
+          <p><b>Gênero:</b> Romance, Fantasia</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-footer></app-footer>
+  <app-modal #modal>
+    <section class="modalExcluir">
+    <div class="confirmacao">
+      <div class="linhaBranca"></div>
+      <div class="mensagemExcluir">
+        <p>Tem certeza que gostaria de excluir esse filme?</p>
+      </div>
+
+      <div class="botoes">
+        <button class="btn_confirmar" (click)="excluirFilme()">Excluir</button>
+        <button class="btn_confirmar" (click)="modal.toogle()">Cancelar</button>
+      </div>
+      <div class="linhaBranca"></div>
+    </div>
+    <div class="imagemConfirmado">
+      <img src="../../assets/img/🦆 icon _check circle_.png">
+    </div>
+  </section>
+  </app-modal>
+</main>
+
+
+
+
+

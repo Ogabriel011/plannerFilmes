@@ -13,9 +13,9 @@ export class AdicioneFilmesComponent implements OnInit {
   meusFilmes: MeusFilmes[] = [];
   filtro: string = ''
   enteredSearchValue:string = '';
-  anoFiltrado:string = '';
-  generoFiltrado:string = '';
-  tipoFiltrado:string = '';
+  anoFiltrado:string = 'Selecione um Ano';
+  generoFiltrado:string = 'Selecione um Gênero';
+  tipoFiltrado:string = 'Selecione um Tipo';
 
   @Output() searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
   @Output() filtroAno: EventEmitter<string> = new EventEmitter<string>();
@@ -23,7 +23,7 @@ export class AdicioneFilmesComponent implements OnInit {
   @Output() filtroTipo: EventEmitter<string> = new EventEmitter<string>();
 
 
-  constructor(private filmesService: FilmesService, private formBuilder:FormBuilder){
+  constructor(private filmesService: FilmesService){
   }
 
   ngOnInit(): void {
@@ -61,8 +61,11 @@ export class AdicioneFilmesComponent implements OnInit {
     console.log(this.tipoFiltrado);
   }
 
-
-
+  limparFiltros(){
+    this.generoFiltrado =  'Selecione um Gênero';
+    this.tipoFiltrado = 'Selecione um Tipo';
+    this.anoFiltrado = 'Selecione um Ano'
+  }
 
 
 

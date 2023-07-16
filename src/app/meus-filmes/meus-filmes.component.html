@@ -11,11 +11,11 @@
         <div class="cards" >
       <div
         class="card"
-        *ngIf="searchText === '' || filme.titulo.toLowerCase().includes(searchText) && filme.ano.toLowerCase() === anoFiltro && validaGeneroSelecionado(generoFiltro, filme.genero) && filme.tipo.toLowerCase() === tipoFiltro "
+        *ngIf="searchText === '' || filme.titulo.toLowerCase().includes(searchText) && validaAno(anoFiltro, filme.ano) && validaGeneroSelecionado(generoFiltro, filme.genero) && validaTipo(tipoFiltro, filme.tipo) "
 
       >
         <img src="{{ filme.banner }}" />
-        <button class="detalhes">Detalhes</button>
+        <button class="detalhes" (click)="detalhesFilme()">Detalhes</button>
         <div class="titulo">
           <p>
             Titulo: <a href="#">{{ filme.titulo }}</a>

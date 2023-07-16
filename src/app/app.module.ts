@@ -16,6 +16,9 @@ import { FooterComponent } from './footer/footer.component';
 import { AdicioneFilmesComponent } from './adicione-filmes/adicione-filmes.component';
 import { FormsModule } from '@angular/forms';
 import { BuscaFilmesComponent } from './busca-filmes/busca-filmes.component';
+import { DetalhesFilmeComponent } from './detalhes-filme/detalhes-filme.component';
+import { SobreFilmesComponent } from './sobre-filmes/sobre-filmes.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -31,6 +34,9 @@ import { BuscaFilmesComponent } from './busca-filmes/busca-filmes.component';
     FooterComponent,
     AdicioneFilmesComponent,
     BuscaFilmesComponent,
+    DetalhesFilmeComponent,
+    SobreFilmesComponent,
+    ModalComponent,
 
   ],
   imports: [

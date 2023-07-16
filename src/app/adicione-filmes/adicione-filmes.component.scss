@@ -18,7 +18,7 @@
 }
 
 .filtros{
-  height: 40px;
+  height: 60px;
   width: 40%;
   margin-left: 5%;
   display: flex;
@@ -27,8 +27,45 @@
   color: white;
 }
 
+.filtros p{
+  margin-right: 15px;
+}
+
+.generos{
+  width: 30%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.generos label{
+  margin-left: 2%;
+}
+
+.tipo{
+  width: 30%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tipo label{
+  margin-left: 2%;
+}
+
+.ano{
+  width: 30%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ano label{
+  margin-left: 2%;
+}
+
 select{
-  width: 25%;
+  width: 70%;
   height: 35px;
   background-color: #393847;
   border-radius: 20px;
@@ -71,21 +108,55 @@ select{
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+.limpar_filtros{
+  margin-top: 13px;
+  color: white;
+  font-family: 'roboto';
+  background: linear-gradient(90deg, #B939A7 0%, #E13664 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.limpar_filtros:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 @media(max-width:572px){
   .informacoes{
     flex-wrap: initial;
   }
 
+}
+
+@media(max-width:680px){
+  .informacoes{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .filtros{
-    flex-direction: column;
+    width: 100%;
+    margin: 0;
   }
 
-  select{
+  .ajuste{
     width: 50%;
   }
 
-  .pesquisa{
+  .adicioneFilmes{
     width: 50%;
-    margin-left: 10%;
+  }
+
+  .generos label{
+    margin: 0;
+  }
+
+  .tipo label{
+    margin: 0;
+  }
+
+  .ano label{
+    margin: 0;
   }
 }

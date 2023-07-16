@@ -22,27 +22,38 @@
 
   <div class="filtros">
     <p>Filtros:</p>
-    <select name="generos" id="generos" [(ngModel)]="generoFiltrado" (change)="generoFiltro()">
-      <option value="genero" disabled selected>Genêro</option>
-      <option value="terror">Terror</option>
-      <option value="acao">Ação</option>
-      <option value="aventura">Aventura</option>
-      <option value="comedia">Comédia</option>
-    </select>
+    <div class="generos">
+      <label for="generos">Gêneros:</label>
+      <select name="generos" id="generos" [(ngModel)]="generoFiltrado" (change)="generoFiltro()">
+        <option>Selecione um Gênero</option>
+        <option value="terror">Terror</option>
+        <option value="acao">Ação</option>
+        <option value="aventura">Aventura</option>
+        <option value="comedia">Comédia</option>
+      </select>
+    </div>
 
-    <select name="tipo" id="tipo" [(ngModel)]="tipoFiltrado" (change)="tipoFiltro()">
-      <option value="tipo" disabled selected>Tipo</option>
-      <option value="filme">Filme</option>
-      <option value="serie">Série</option>
-      <option value="episodio">Episódio</option>
-    </select>
+    <div class="tipo">
+      <label for="tipo">Tipo:</label>
+      <select name="tipo" id="tipo" [(ngModel)]="tipoFiltrado" (change)="tipoFiltro()">
+        <option>Selecione um Tipo</option>
+        <option value="filme">Filme</option>
+        <option value="serie">Série</option>
+        <option value="episodio">Episódio</option>
+      </select>
+    </div>
 
-    <select name="ano" id="ano" [(ngModel)]="anoFiltrado" (change)="anoFiltro()">
-      <option value="ano" disabled selected>Ano</option>
-      <option value="2020">2020</option>
-      <option value="2021">2021</option>
-      <option value="2022">2022</option>
-      <option value="2023">2023</option>
-    </select>
+    <div class="ano">
+      <label for="ano">Ano:</label>
+      <select name="ano" id="ano" [(ngModel)]="anoFiltrado" (change)="anoFiltro()">
+        <option>Selecione um Ano</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+      </select>
+    </div>
+
+    <button class="limpar_filtros" (click)="limparFiltros()">Limpar Filtros</button>
   </div>
 </div>

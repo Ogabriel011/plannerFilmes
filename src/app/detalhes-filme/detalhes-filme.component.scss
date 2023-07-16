@@ -1,0 +1,173 @@
+main{
+  background-color: #464555;
+  font-family: 'roboto';
+}
+
+.img_fundo img{
+  width: 100%;
+  object-fit: cover;
+  mask-image: linear-gradient(to top, transparent 10%, black 100%);
+}
+
+h2{
+  font-size: 32px;
+}
+
+.detalhes_filme{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+}
+
+.lado_esquerdo{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 270px;
+}
+
+.imagemFilme{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner_filme{
+  border-radius: 5px;
+  width: 90%;
+}
+
+.adicionar_filme{
+  width: 50px;
+  height: 50px;
+  color: white;
+  background: linear-gradient(90deg, #B939A7 0%, #E13664 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.adicionar_filme img{
+  max-width: 20px ;
+}
+
+.container .btn {
+  position: absolute;
+  top: 90%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 10%;
+}
+
+
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+.onde_assistir{
+  color: white;
+  padding-left: 20px;
+}
+
+.linhaBranca{
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  margin: 10px 0
+}
+
+.links{
+  display: flex;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.links img{
+  max-width: 20px;
+  max-height: 20px;
+}
+
+.links p{
+  color: grey;
+}
+
+.links a{
+  color: white;
+  margin: 0 5px
+}
+
+.informacoes{
+  color: white;
+  margin: 0 0 10px 20px
+}
+
+
+.lado_direito{
+  width:65%;
+  margin-top: 20px;
+  color: white;
+}
+
+.titulo_filme{
+  display: flex;
+  align-items: end;
+  margin-bottom: 15px;
+}
+
+.titulo_filme p{
+  font-size: 18px;
+  padding-bottom: 5px;
+}
+
+.titulo_filme h2{
+  margin-right: 45px;
+}
+
+.sinopse{
+  font-size: 18px;
+}
+
+.ficha_filme{
+  margin-top: 20px;
+}
+
+.ficha_filme p{
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+@media(max-width:750px){
+  .detalhes_filme{
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  .lado_esquerdo{
+    width: 60%;
+    bottom: 100px;
+  }
+
+  .banner_filme{
+    width: 70%;
+  }
+
+}
+
