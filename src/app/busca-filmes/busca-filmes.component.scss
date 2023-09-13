@@ -59,6 +59,7 @@ main{
 
 body{
   height: 100%;
+  margin-bottom: 129px;
   font-family: 'roboto';
 }
 
@@ -80,7 +81,7 @@ body{
   width: 90%;
   margin-left: 5%;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-evenly;
   flex-wrap: wrap;
   margin-top: 3% ;
 }
@@ -88,11 +89,19 @@ body{
 .card{
   width: 250px;
   height: 450px;
+  margin: 0 25px;
   background-color: rgba(15, 14, 17, 1);
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   color: white;
   border-radius: 10px;
   margin-bottom: 30px;
+}
+
+.card img{
+  max-width: 250px;
+  max-height: 365px;
+  min-width: 250px;
+  min-height: 365px;
 }
 
 .card a{
@@ -126,9 +135,32 @@ body{
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-@media(max-width:572px){
+// @media(max-width:572px){
+//   .filmes{
+//     justify-content: center;
+//   }
+
+//   .cards{
+//     justify-content: center;
+//   }
+// }
+
+@media(max-width:1016px){
+  .card{
+    margin: 0 15px 35px 15px
+  }
   .filmes{
     justify-content: center;
+  }
+
+  .cards{
+    justify-content: center;
+  }
+}
+
+@media(max-width:950px){
+  .filmes{
+    justify-content: space-evenly;
   }
 }
 

@@ -24,6 +24,11 @@ export class EditarPerfilComponent implements OnInit{
       senha: ['', [Validators.required, Validators.minLength(6)]]
     })
 
+    this.listaUsuarios()
+
+  }
+
+  listaUsuarios(){
     this.usuariosService.mostrarUsuarios().subscribe({
       next: (usuarios: Usuarios[]) => {
         this.usuarios = usuarios;

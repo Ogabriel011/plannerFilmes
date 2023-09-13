@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { MeusFilmes } from '../models/filmes.model';
+import { MeusFilmes } from './../models/filmes.model';
+import { Observable } from 'rxjs';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { FilmesService } from '../services/filmes.service';
 import { Router } from '@angular/router';
+import { LocalStorageService } from '../services/local-storage.service';
+import { SessionStorageService } from '../services/session-storage.service';
 
 @Component({
   selector: 'app-meus-filmes',
@@ -18,19 +21,46 @@ export class MeusFilmesComponent implements OnInit {
   tipoFiltro:string = '';
   filme!: MeusFilmes
 
+  testeObj:any;
+  verificao!:boolean
+  resultado!:any
+  guardarId!:string
 
-  constructor(private filmesService: FilmesService, private router:Router){}
+  @Output() filmeId!:string
+
+  constructor(private filmesService: FilmesService, private router:Router, private sessionStorage: SessionStorageService){}
 
   ngOnInit(): void {
-    this.filmesService.PegarMeusFilmes(this.filtro).subscribe({
+    this.verificaSession()
+  }
+
+  listarFilmesSession(){
+    this.filmesService.PegarMeusFilmes().subscribe({
       next: (filmes: MeusFilmes[]) => {
-        this.meusFilmes = filmes;
-        console.log(filmes)
+        this.meusFilmes = filmes
+        this.sessionStorage.set('dados', JSON.stringify(filmes))
       },
       error: () => {
         console.log(Error);
       }
     })
+  }
+
+  verificaSession(){
+    if(window.sessionStorage.getItem('dados') === null){
+      this.listarFilmesSession()
+    }else{
+      this.resultado = window.sessionStorage.getItem('dados')
+      this.meusFilmes = JSON.parse(this.resultado)
+      console.log(this.resultado)
+    }
+  }
+
+  detalhesFilme(idFilme:string){
+    this.filmeId = idFilme
+    console.log(this.filmeId)
+    window.sessionStorage.setItem('idFilme', idFilme)
+    this.router.navigateByUrl('sobre_filmes');
   }
 
   onSearchTextEndered(searchValue:string){
@@ -54,7 +84,6 @@ export class MeusFilmesComponent implements OnInit {
   }
 
   validaGeneroSelecionado(generoInformado:string, generoRecebido:string){
-
     // Selecione um Gênero
     if(generoInformado.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "") === "selecione um genero"){
       return true
@@ -84,8 +113,6 @@ export class MeusFilmesComponent implements OnInit {
     }
   }
 
-  detalhesFilme(){
-    this.router.navigateByUrl('sobre_filmes')
-  }
+
 
 }

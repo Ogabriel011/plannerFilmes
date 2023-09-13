@@ -1,9 +1,15 @@
 <app-header></app-header>
 <main>
+  <button class="voltar" (click)="voltarTela()">
+    <img
+      src="../../assets/img/curva-de-seta-apontando-para-a-esquerda.png"
+      alt="Icon seta curvada para a esquerda"
+    />
+  </button>
   <div class="img_fundo">
     <img
-      src="../../assets/img/thumb-1920-805763 1.png"
-      alt="Imagem do Filme A Bela e a Fera"
+      src="{{ exibeFilme.img_fundo }}"
+      alt="Imagem do Filme {{ exibeFilme.titulo }}"
     />
   </div>
 
@@ -11,11 +17,17 @@
     <div class="lado_esquerdo">
       <div class="container">
         <img
-          src="../../assets/img/s-l1600 (1) 1.png"
+          src="{{ exibeFilme.banner }}"
           class="banner_filme"
-          alt="Banner filme A Bela e a Fera"
-          >
-          <button class="adicionar_filme btn"><img class="logo_btn" src="../../assets/img/ icon _star_ (2).png" alt="Icone +"></button>
+          alt="Banner filme {{ exibeFilme.titulo }}"
+        />
+        <button class="adicionar_filme btn" (click)="modalAdicionar.toogle()">
+          <img
+            class="logo_btn"
+            src="../../assets/img/ icon _star_ (2).png"
+            alt="Icone x"
+          />
+        </button>
       </div>
 
       <div>
@@ -62,16 +74,14 @@
     </div>
     <div class="lado_direito">
       <div class="titulo_filme">
-        <h2>A Bela e a Fera</h2>
-        <p>16 mar 2017</p>
+        <h2>
+          {{ exibeFilme.titulo }}
+        </h2>
+        <p>{{ exibeFilme.ano }}</p>
       </div>
       <div class="sinopse">
         <p>
-          Em A Bela e a Fera, moradora de uma pequena aldeia francesa, Bela
-          (Emma Watson) tem o pai capturado pela Fera (Dan Stevens) e decide
-          entregar sua vida ao estranho ser em troca da liberdade dele. No
-          castelo, ela conhece objetos mágicos e descobre que a Fera é, na
-          verdade, um príncipe que precisa de amor para voltar à forma humana.
+          {{ exibeFilme.sinopse }}
         </p>
       </div>
 
@@ -79,29 +89,254 @@
         <h2>Ficha do Filme</h2>
         <div class="linhaBranca"></div>
         <div class="informacoes_filme">
-          <p><b>Lançamento:</b> 16 de março de 2017</p>
-          <p><b>Nota Média:</b> 3.1</p>
-          <p><b>Duração:</b> 2h9min</p>
-          <p><b>Língua:</b> Inglês</p>
-          <p>
-            <b>Roteiro:</b> Stephen Chbosky, Evan Spiliotopoulos, Linda
-            Woolverton
-          </p>
-          <p><b>Diretor:</b> Bill Condon</p>
-          <p><b>Atores:</b> Emma Watson, Dan Stevens, Luke Evans</p>
-          <p>
-            <b>Principais Prêmios:</b> MTV Movie Award Melhor Filme, Empire
-            Awards Melhor Cabelo e Maquiagem
-          </p>
-          <p><b>Gênero:</b> Romance, Fantasia</p>
+          <p><b>Lançamento:</b> {{ exibeFilme.lancamento }}</p>
+          <p><b>Nota Média:</b> {{ exibeFilme.nota }}</p>
+          <p><b>Duração:</b> {{ exibeFilme.duracao }}</p>
+          <p><b>Língua:</b> {{ exibeFilme.lingua }}</p>
+          <p><b>Roteiro:</b> {{ exibeFilme.roteiro }}</p>
+          <p><b>Diretor:</b> {{ exibeFilme.diretor }}</p>
+          <p><b>Atores:</b> {{ exibeFilme.atores }}</p>
+          <p><b>Gênero:</b> {{ exibeFilme.genero }}</p>
+          <p><b>Principais Prêmios:</b> {{ exibeFilme.premios }}</p>
         </div>
       </div>
     </div>
   </section>
   <app-footer></app-footer>
+
+  <!-- MODAL ADICIONAR -->
+
+  <app-modal-adicionar #modalAdicionar>
+    <header>
+      <img
+        (click)="modalAdicionar.toogle()"
+        src="../../assets/img/x.png"
+        alt="Icone de X"
+      />
+    </header>
+    <section class="modalAdicionar">
+      <div class="ajuste_img">
+        <img
+          class="modalImg"
+          src="{{ exibeFilme.banner }}"
+          alt="Banner do filme {{ exibeFilme.titulo }}"
+        />
+      </div>
+      <div class="informacoesModal">
+        <div class="tituloModal">
+          <b>{{ exibeFilme.titulo }}</b>
+          <p>{{ exibeFilme.ano }}</p>
+        </div>
+        <div class="linhaBrancaModal"></div>
+        <div class="filmeModal">
+          <b>Informações do Filme</b>
+
+          <form class="selecao">
+            <input
+              type="checkbox"
+              id="jaAssisti"
+              name="statusFilmes"
+              value="jaAssisti"
+            />
+            <label for="jaAssisti">Já assisti esse filme antes</label><br />
+
+            <input
+              type="checkbox"
+              id="queroAssistir"
+              name="statusFilmes"
+              value="queroAssistir"
+            />
+            <label for="queroAssistir">Quero assistir</label><br />
+
+            <input
+              type="checkbox"
+              id="favoritos"
+              name="statusFilmes"
+              value="favoritos"
+            />
+            <label for="favoritos">Adicionar a favoritos</label><br />
+          </form>
+
+          <div class="data">
+            <p>Data que pretendo assistir</p>
+
+
+            <mat-form-field>
+              <mat-label>Data</mat-label>
+              <input class="datapicker" matInput [matDatepicker]="picker" (dateChange)="onChangeData($event)">
+              <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
+              <mat-datepicker #picker ></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+        </div>
+
+        <div class="linhaBrancaModal"></div>
+
+        <div class="informacoesAdicionais">
+          <b>Informações adicionais</b>
+
+          <textarea name="descricao" id="descricao"></textarea>
+
+          <div class="avaliacao">
+            <p>Já assistiu? Avalie</p>
+
+            <div class="estrelas">
+              <!-- Componente pego de site  -->
+              <form>
+              <div class="rating">
+                <input value="5" name="rating" id="star5" checked="star5" type="radio" (change)="onChangeAvaliacao
+                ($event)" />
+                <label for="star5"></label>
+                <input value="4" name="rating" id="star4" checked="star4" type="radio" (change)="onChangeAvaliacao
+                ($event)" />
+                <label for="star4"></label>
+                <input value="3" name="rating" id="star3" checked="star3" type="radio" (change)="onChangeAvaliacao
+                ($event)" />
+                <label for="star3"></label>
+                <input value="2" name="rating" id="star2" checked="star2" type="radio" (change)="onChangeAvaliacao
+                ($event)" />
+                <label for="star2"></label>
+                <input value="1" name="rating" id="star1" checked="star1" type="radio" (change)="onChangeAvaliacao
+                ($event)" />
+                <label for="star1"></label>
+              </div>
+            </form>
+            </div>
+
+            <button
+              class="btnModal"
+              (click)="modalConfirmar.toogle()"
+              (click)="modalAdicionar.toogle()"
+            >
+              Adicionar
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </app-modal-adicionar>
+
+  <!-- MODAL CONFIRMAÇÃO -->
+
+  <app-modal-confirmar #modalConfirmar>
+    <header>
+      <img class="setaEsquerda" (click)="modalConfirmar.toogle()" (click)="modalAdicionar.toogle()" src="../../assets/img/seta-esquerda.png" alt="Icone seta para esquerda">
+      <img
+        (click)="modalConfirmar.toogle()"
+        src="../../assets/img/x.png"
+        alt="Icone de X"
+      />
+    </header>
+    <section class="modalConfirmar">
+      <div class="ajuste_img">
+        <img
+          class="modalImg"
+          src="{{ exibeFilme.banner }}"
+          alt="Banner do filme {{ exibeFilme.titulo }}"
+        />
+      </div>
+      <div class="informacoesModal">
+        <div class="tituloModal">
+          <b>{{ exibeFilme.titulo }}</b>
+          <p>{{ exibeFilme.ano }}</p>
+        </div>
+        <div class="linhaBrancaModal"></div>
+        <div class="filmeModal">
+          <b>Informações do Filme</b>
+
+          <div class="statusFilme">
+            <img src="../../assets/img/✓.png" />
+            <p>Já assisti esse filme antes</p>
+          </div>
+
+          <div class="data">
+
+            <p>Filme assistido em 02/08/2023</p>
+
+          </div>
+
+        </div>
+
+        <div class="linhaBrancaModal"></div>
+
+        <div class="informacoesAdicionais">
+          <b>Informações adicionais</b>
+
+          <p class="descricao">Vou assistir mais tarde com a minha prima</p>
+
+          <div class="avaliacao">
+            <p>Avaliação</p>
+
+            <div class="estrelas">
+              <!-- Componente pego de site  -->
+              <div class="rating">
+                <input value="5" name="rating" id="star5" type="radio" />
+                <label for="star5"></label>
+                <input value="4" name="rating" id="star4" type="radio" />
+                <label for="star4"></label>
+                <input value="3" name="rating" id="star3" type="radio" />
+                <label for="star3"></label>
+                <input value="2" name="rating" id="star2" type="radio" />
+                <label for="star2"></label>
+                <input value="1" name="rating" id="star1" type="radio" />
+                <label for="star1"></label>
+              </div>
+            </div>
+
+            <button
+              class="btnModal"
+              (click)="modalConfirmar.toogle()"
+              (click)="modalEfetivar.toogle()"
+            >
+              Confirmar
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </app-modal-confirmar>
+
+  <!-- MODAL EFETIVAÇÃO -->
+
+  <app-modal-efetivar #modalEfetivar>
+    <header>
+      <img
+        (click)="modalEfetivar.toogle()"
+        src="../../assets/img/x.png"
+        alt="Icone de X"
+      />
+    </header>
+    <section class="modalEfetivar">
+      <div class="comprovante">
+        <p>
+          <b>{{ exibeFilme.titulo }}</b> foi adicionado ao seu perfil!
+        </p>
+
+        <button class="btnEfetivar">Baixar comprovante</button>
+
+        <div class="linhaBrancaModal"></div>
+
+        <div class="compartilhar">
+          <p>Compartilhar comprovante</p>
+          <div class="iconsCompartilhamento">
+            <img
+              src="../../assets/img/whatsapp-128-svgrepo-com 1.png"
+              alt="Icone Whatsapp"
+            />
+            <img
+              src="../../assets/img/facebook-round-svgrepo-com 1.png"
+              alt="Icone Facebook"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="imgConfirmado">
+        <img
+          src="../../assets/img/🦆 icon _check circle_.png"
+          alt="Icone de Confirmação"
+        />
+      </div>
+    </section>
+  </app-modal-efetivar>
 </main>
-
-
-
-
-

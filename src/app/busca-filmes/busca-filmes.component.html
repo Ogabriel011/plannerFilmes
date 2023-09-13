@@ -1,24 +1,27 @@
 <app-header></app-header>
 <main>
   <body>
-    <app-adicione-filmes></app-adicione-filmes>
+    <app-adicione-filmes (searchTextChanged)="onSearchTextEndered($event)" (filtroAno)="filtrarAno($event)" (filtroGenero)="filtrarGenero($event)" (filtroTipo)="filtrarTipo($event)"></app-adicione-filmes>
 
     <p class="meusFilmes">Resultados da sua busca</p>
     <div class="linha"></div>
 
     <div class="filmes">
       <div
-        class="card"
-        *ngFor="let filme of meusFilmes; index as i"
+        class="cards"
+        *ngFor="let filme of recomendaFilmes; index as i"
       >
+      <div class="card" *ngIf="searchText === '' || filme.titulo.toLowerCase().includes(searchText) && validaAno(anoFiltro, filme.ano) && validaGeneroSelecionado(generoFiltro, filme.genero) && validaTipo(tipoFiltro, filme.tipo) ">
+
         <img src="{{ filme.banner }}" />
-        <button class="detalhes">Detalhes</button>
+        <button class="detalhes" (click)="detalhesFilme(filme.id)" >Detalhes</button>
         <div class="titulo">
           <p>
             Titulo: <a href="#">{{ filme.titulo }}</a>
           </p>
           <p>{{ filme.ano }}</p>
         </div>
+      </div>
 
       </div>
      </div>

@@ -31,10 +31,9 @@ export class AdicioneFilmesComponent implements OnInit {
   }
 
   listarFilmes(){
-    this.filmesService.PegarMeusFilmes(this.filtro).subscribe({
+    this.filmesService.PegarMeusFilmes().subscribe({
       next: (filmes: MeusFilmes[]) => {
         this.meusFilmes = filmes;
-        console.log(filmes)
       },
       error: () => {
         console.log(Error);

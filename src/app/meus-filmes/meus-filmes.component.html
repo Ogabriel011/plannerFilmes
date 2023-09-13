@@ -15,7 +15,7 @@
 
       >
         <img src="{{ filme.banner }}" />
-        <button class="detalhes" (click)="detalhesFilme()">Detalhes</button>
+        <button class="detalhes" (click)="detalhesFilme(filme.id)" >Detalhes {{filme.id}} </button>
         <div class="titulo">
           <p>
             Titulo: <a href="#">{{ filme.titulo }}</a>
@@ -23,8 +23,6 @@
           <p> Genêro: {{ filme.genero }}</p>
           <p>{{ filme.ano }}</p>
         </div>
-
-
 
       </div>
     </div>

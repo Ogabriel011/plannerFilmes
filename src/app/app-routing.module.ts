@@ -1,3 +1,4 @@
+import { ModalConfirmarComponent } from './modal/modal-confirmar/modal-confirmar.component';
 import { ComponentFixture } from '@angular/core/testing';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,7 +11,7 @@ import { MeusFilmesComponent } from './meus-filmes/meus-filmes.component';
 import { BuscaFilmesComponent } from './busca-filmes/busca-filmes.component';
 import { DetalhesFilmeComponent } from './detalhes-filme/detalhes-filme.component';
 import { SobreFilmesComponent } from './sobre-filmes/sobre-filmes.component';
-import { ModalComponent } from './modal/modal.component';
+import { ModalComponent } from './modal/modal-excluir/modal.component';
 
 const routes: Routes = [
   {
@@ -45,7 +46,8 @@ const routes: Routes = [
   },
   {
     path: 'modal', component: ModalComponent
-  }
+  },
+
 ];
 
 @NgModule({

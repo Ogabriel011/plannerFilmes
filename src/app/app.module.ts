@@ -18,7 +18,16 @@ import { FormsModule } from '@angular/forms';
 import { BuscaFilmesComponent } from './busca-filmes/busca-filmes.component';
 import { DetalhesFilmeComponent } from './detalhes-filme/detalhes-filme.component';
 import { SobreFilmesComponent } from './sobre-filmes/sobre-filmes.component';
-import { ModalComponent } from './modal/modal.component';
+import { ModalComponent } from './modal/modal-excluir/modal.component';
+import { ModalConfirmarComponent } from './modal/modal-confirmar/modal-confirmar.component';
+import { ModalEfetivarComponent } from './modal/modal-efetivar/modal-efetivar.component';
+import { ModalAdicionarComponent } from './modal/modal-adicionar/modal-adicionar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { DatePipe } from '@angular/common';
+
 
 
 @NgModule({
@@ -37,7 +46,9 @@ import { ModalComponent } from './modal/modal.component';
     DetalhesFilmeComponent,
     SobreFilmesComponent,
     ModalComponent,
-
+    ModalConfirmarComponent,
+    ModalEfetivarComponent,
+    ModalAdicionarComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,9 +56,18 @@ import { ModalComponent } from './modal/modal.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-
+    BrowserAnimationsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    DatePipe
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule,
+    MatNativeDateModule,
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
