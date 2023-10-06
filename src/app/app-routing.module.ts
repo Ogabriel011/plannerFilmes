@@ -12,6 +12,7 @@ import { BuscaFilmesComponent } from './busca-filmes/busca-filmes.component';
 import { DetalhesFilmeComponent } from './detalhes-filme/detalhes-filme.component';
 import { SobreFilmesComponent } from './sobre-filmes/sobre-filmes.component';
 import { ModalComponent } from './modal/modal-excluir/modal.component';
+import { PdfComponent } from './pdf/pdf.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,9 @@ const routes: Routes = [
   {
     path: 'modal', component: ModalComponent
   },
+  {
+    path: 'pdf', component: PdfComponent
+  }
 
 ];
 

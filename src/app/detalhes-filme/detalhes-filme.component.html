@@ -115,6 +115,7 @@
       />
     </header>
     <section class="modalAdicionar">
+      <form class="formFilme" [formGroup]="formulario">
       <div class="ajuste_img">
         <img
           class="modalImg"
@@ -131,12 +132,14 @@
         <div class="filmeModal">
           <b>Informações do Filme</b>
 
-          <form class="selecao">
+          <div  class="selecao">
             <input
               type="checkbox"
               id="jaAssisti"
               name="statusFilmes"
-              value="jaAssisti"
+              value="Já assisti esse filme antes"
+              formControlName="selected"
+              (change)="onChangeCheckbox($event)"
             />
             <label for="jaAssisti">Já assisti esse filme antes</label><br />
 
@@ -144,7 +147,9 @@
               type="checkbox"
               id="queroAssistir"
               name="statusFilmes"
-              value="queroAssistir"
+              value="Quero assistir"
+              formControlName="selected"
+              (change)="onChangeCheckbox($event)"
             />
             <label for="queroAssistir">Quero assistir</label><br />
 
@@ -152,10 +157,12 @@
               type="checkbox"
               id="favoritos"
               name="statusFilmes"
-              value="favoritos"
+              value="Adicionar a favoritos"
+              formControlName="selected"
+              (change)="onChangeCheckbox($event)"
             />
             <label for="favoritos">Adicionar a favoritos</label><br />
-          </form>
+          </div>
 
           <div class="data">
             <p>Data que pretendo assistir</p>
@@ -163,7 +170,7 @@
 
             <mat-form-field>
               <mat-label>Data</mat-label>
-              <input class="datapicker" matInput [matDatepicker]="picker" (dateChange)="onChangeData($event)">
+              <input class="datapicker" matInput [matDatepicker]="picker" formControlName="date" (dateChange)="onChangeData($event)">
               <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
               <mat-datepicker #picker ></mat-datepicker>
             </mat-form-field>
@@ -176,7 +183,7 @@
         <div class="informacoesAdicionais">
           <b>Informações adicionais</b>
 
-          <textarea name="descricao" id="descricao"></textarea>
+          <textarea name="descricao" id="descricao" (input)="descricaoFilme" (change)="onChangeMensagem($event)" formControlName="textArea"></textarea>
 
           <div class="avaliacao">
             <p>Já assistiu? Avalie</p>
@@ -186,19 +193,19 @@
               <form>
               <div class="rating">
                 <input value="5" name="rating" id="star5" checked="star5" type="radio" (change)="onChangeAvaliacao
-                ($event)" />
+                ($event)"  />
                 <label for="star5"></label>
                 <input value="4" name="rating" id="star4" checked="star4" type="radio" (change)="onChangeAvaliacao
-                ($event)" />
+                ($event)"  />
                 <label for="star4"></label>
                 <input value="3" name="rating" id="star3" checked="star3" type="radio" (change)="onChangeAvaliacao
-                ($event)" />
+                ($event)"  />
                 <label for="star3"></label>
                 <input value="2" name="rating" id="star2" checked="star2" type="radio" (change)="onChangeAvaliacao
-                ($event)" />
+                ($event)"  />
                 <label for="star2"></label>
                 <input value="1" name="rating" id="star1" checked="star1" type="radio" (change)="onChangeAvaliacao
-                ($event)" />
+                ($event)"  />
                 <label for="star1"></label>
               </div>
             </form>
@@ -208,12 +215,15 @@
               class="btnModal"
               (click)="modalConfirmar.toogle()"
               (click)="modalAdicionar.toogle()"
+              (click)="salvarInformacoes()"
+              [disabled]="formulario.invalid"
             >
               Adicionar
             </button>
           </div>
         </div>
       </div>
+    </form>
     </section>
   </app-modal-adicionar>
 
@@ -221,7 +231,7 @@
 
   <app-modal-confirmar #modalConfirmar>
     <header>
-      <img class="setaEsquerda" (click)="modalConfirmar.toogle()" (click)="modalAdicionar.toogle()" src="../../assets/img/seta-esquerda.png" alt="Icone seta para esquerda">
+      <img class="setaEsquerda" (click)="limparFormulario()" (click)="modalConfirmar.toogle()" (click)="modalAdicionar.toogle()" src="../../assets/img/seta-esquerda.png" alt="Icone seta para esquerda">
       <img
         (click)="modalConfirmar.toogle()"
         src="../../assets/img/x.png"
@@ -246,13 +256,25 @@
           <b>Informações do Filme</b>
 
           <div class="statusFilme">
-            <img src="../../assets/img/✓.png" />
-            <p>Já assisti esse filme antes</p>
+            <div class="ajusteLabel">
+              <img src="../../assets/img/✓.png" />
+              <label *ngIf="isJaAssistiu">Já assisti esse filme antes</label>
+            </div>
+
+            <div class="ajusteLabel">
+              <img src="../../assets/img/✓.png" />
+            <label *ngIf="isQueroAssistir">Quero assistir</label>
+            </div>
+
+            <div class="ajusteLabel">
+              <img src="../../assets/img/✓.png" />
+            <label *ngIf="isFavoritos">Adicionar a favoritos</label>
+            </div>
           </div>
 
           <div class="data">
 
-            <p>Filme assistido em 02/08/2023</p>
+            <p>Filme assistido em {{localDate}}</p>
 
           </div>
 
@@ -263,14 +285,14 @@
         <div class="informacoesAdicionais">
           <b>Informações adicionais</b>
 
-          <p class="descricao">Vou assistir mais tarde com a minha prima</p>
+          <p class="descricao">{{valueMensagem}}</p>
 
           <div class="avaliacao">
             <p>Avaliação</p>
 
             <div class="estrelas">
               <!-- Componente pego de site  -->
-              <div class="rating">
+              <div class="rating" >
                 <input value="5" name="rating" id="star5" type="radio" />
                 <label for="star5"></label>
                 <input value="4" name="rating" id="star4" type="radio" />
@@ -300,6 +322,7 @@
   <!-- MODAL EFETIVAÇÃO -->
 
   <app-modal-efetivar #modalEfetivar>
+    <div id="modalEfetivar">
     <header>
       <img
         (click)="modalEfetivar.toogle()"
@@ -312,8 +335,9 @@
         <p>
           <b>{{ exibeFilme.titulo }}</b> foi adicionado ao seu perfil!
         </p>
+        <label>Teste Titulo</label>
 
-        <button class="btnEfetivar">Baixar comprovante</button>
+        <button (click)="goPdf()" class="btnEfetivar">Baixar comprovante</button>
 
         <div class="linhaBrancaModal"></div>
 
@@ -321,10 +345,12 @@
           <p>Compartilhar comprovante</p>
           <div class="iconsCompartilhamento">
             <img
+              (click)="redirectWhats()"
               src="../../assets/img/whatsapp-128-svgrepo-com 1.png"
               alt="Icone Whatsapp"
             />
             <img
+              (click)="redirectFace()"
               src="../../assets/img/facebook-round-svgrepo-com 1.png"
               alt="Icone Facebook"
             />
@@ -338,5 +364,6 @@
         />
       </div>
     </section>
+  </div>
   </app-modal-efetivar>
 </main>

@@ -1,0 +1,77 @@
+<body id="contentToConvert">
+  <section class="header">
+    <div class="logo">
+      <b>Moviez.</b>
+    </div>
+    <div class="comprovante">
+      <b>Comprovante</b>
+    </div>
+  </section>
+  <section class="filme">
+    <div class="imagemFilme">
+      <img src="../../assets/img/s-l1600 (1) 1.png" alt="">
+    </div>
+
+    <div class="informacoes">
+
+      <div class="titulo">
+        <b>A Bela e Fera</b>
+        <p>2017</p>
+      </div>
+
+      <hr>
+
+      <div class="informacoesFilme">
+        <b>Informações do filme</b>
+
+        <div class="checked">
+          <img src="../../assets/img/✓ black.png" alt="">
+          <p *ngIf="isFavoritos === true">Favoritos</p>
+        </div>
+
+        <p>Pretendo assistir em {{localDate}}</p>
+      </div>
+
+      <hr>
+
+      <div class="informacoesAdicionais">
+        <b>Informações adicionais</b>
+
+        <p>{{valueMensagem}}</p>
+
+        <div class="avaliacao">
+          <p>Avaliação</p>
+
+          <!-- stars here -->
+          <div class="estrelas">
+            <!-- Componente pego de site  -->
+            <div class="rating">
+              <input value="5" name="rating" id="star5" type="radio" />
+              <label for="star5"></label>
+              <input value="4" name="rating" id="star4" type="radio" />
+              <label for="star4"></label>
+              <input value="3" name="rating" id="star3" type="radio" />
+              <label for="star3"></label>
+              <input value="2" name="rating" id="star2" type="radio" />
+              <label for="star2"></label>
+              <input value="1" name="rating" id="star1" type="radio" />
+              <label for="star1"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <app-pdf-modal #modalPdf>
+        <div class="displayFlex">
+          <img class="verificado" src="../../assets/img/verificado.gif">
+          <b>Sucesso!</b>
+          <p>Seu Filme foi adicionado!</p>
+          <button class="btnModal" (click)="clearLocalStorage()" routerLink="/detalhes_filme"> Continuar</button>
+        </div>
+      </app-pdf-modal>
+
+    </div>
+  </section>
+</body>
+
+

@@ -27,6 +27,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
+import { PdfComponent } from './pdf/pdf.component';
+import { PdfModalComponent } from './pdf/pdf-modal/pdf-modal.component';
+
 
 
 
@@ -49,6 +52,8 @@ import { DatePipe } from '@angular/common';
     ModalConfirmarComponent,
     ModalEfetivarComponent,
     ModalAdicionarComponent,
+    PdfComponent,
+    PdfModalComponent,
   ],
   imports: [
     BrowserModule,
